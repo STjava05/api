@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml" xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <meta charset="UTF-8">
+        <script charset="utf-8" src="/js/server.js"></script>
+        <title>Employee Web Application</title>
+        
+    </head>
+    <body>
+        <h2 class="h2">Liste des employées</h2>
+        <form id="employee-form" action="http://localhost:3306/employee/" method="post"> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${employees.empty}">
+                    <td colspan="3">Aucun employée en base de données</td>
+                </tr>
+                <tr th:each="employee: ${employees}">
+                    <td><span th:text="${employee.firstName}"> oussein </span></td>
+                    <td><span th:text="${employee.lastName}"> Mbengue </span></td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+    </body>
+</html>
